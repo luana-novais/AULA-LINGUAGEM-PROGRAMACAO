@@ -31,7 +31,7 @@
         $nota3 = $_POST["nota3"];
         $soma = $nota1 + $nota2 + $nota3;
         $media = $soma / 3;
-        echo"<p>A média das notas é: $media </p>";
+        echo"<p>A média das notas é: </p>" .number_format($media, 2, ',','');
     }
 
 ?>
