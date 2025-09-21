@@ -10,7 +10,7 @@ include("cabecalho.php");
 <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 <?php
-  if($_SERVER['REQUEST_METHOD'] == ['POST']){
+  if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $numero = $_POST['numero'];
     switch($numero){
       case 1:

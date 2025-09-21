@@ -24,13 +24,13 @@
 <li><a class="dropdown-item" href="ex2_1.php">Exercício 1</a></li>
 <li><a class="dropdown-item" href="ex2_2.php">Exercício 2</a></li>
 <li><a class="dropdown-item" href="ex2_3.php">Exercício 3</a></li>
-<li><a class="dropdown-item" href="#">Exercício 4</a></li>
+<li><a class="dropdown-item" href="ex2_4.php">Exercício 4</a></li>
 <li><a class="dropdown-item" href="ex2_5.php">Exercício 5</a></li>
-<li><a class="dropdown-item" href="#">Exercício 6</a></li>
-<li><a class="dropdown-item" href="#">Exercício 7</a></li>
-<li><a class="dropdown-item" href="#">Exercício 8</a></li>
+<li><a class="dropdown-item" href="ex2_6.php">Exercício 6</a></li>
+<li><a class="dropdown-item" href="ex2_7.php">Exercício 7</a></li>
+<li><a class="dropdown-item" href="ex2_8.php">Exercício 8</a></li>
 <li><a class="dropdown-item" href="ex2_9.php">Exercício 9</a></li>
-<li><a class="dropdown-item" href="#">Exercício 10</a></li>
+<li><a class="dropdown-item" href="ex2_10.php">Exercício 10</a></li>
   </ul>
 </li>
       </ul>
