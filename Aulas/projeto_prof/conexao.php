@@ -1,0 +1,14 @@
+<?php
+
+    $dominio = "mysql:host=localhost;dbname=projetophp"; // PDO classe interna para manipular os dados do banco
+    $usuario = "root";
+    $senha = "123456";
+
+    try {
+        //sequencia de ações que a gente quer q aconteça
+        $pdo = new PDO($dominio, $usuario, $senha);
+    } catch (Exception $e){
+        //tratar os erros, as exceções que pode ocorrer
+        die("Erro ao conectar ao banco!".$e->getMessage()); //mata a aplicação    
+    }
+?>
