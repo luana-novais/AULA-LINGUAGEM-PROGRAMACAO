@@ -21,16 +21,16 @@
     Lista 2
   </a>
   <ul class="dropdown-menu" aria-labelledby="dropdown1">
-<li><a class="dropdown-item" href="ex2_1.php">Exercício 1</a></li>
-<li><a class="dropdown-item" href="ex2_2.php">Exercício 2</a></li>
-<li><a class="dropdown-item" href="ex2_3.php">Exercício 3</a></li>
-<li><a class="dropdown-item" href="ex2_4.php">Exercício 4</a></li>
-<li><a class="dropdown-item" href="ex2_5.php">Exercício 5</a></li>
-<li><a class="dropdown-item" href="ex2_6.php">Exercício 6</a></li>
-<li><a class="dropdown-item" href="ex2_7.php">Exercício 7</a></li>
-<li><a class="dropdown-item" href="ex2_8.php">Exercício 8</a></li>
-<li><a class="dropdown-item" href="ex2_9.php">Exercício 9</a></li>
-<li><a class="dropdown-item" href="ex2_10.php">Exercício 10</a></li>
+<li><a class="dropdown-item" href="Lista_exercicios_2\ex2_1.php">Exercício 1</a></li>
+<li><a class="dropdown-item" href="Lista_exercicios_2\ex2_2.php">Exercício 2</a></li>
+<li><a class="dropdown-item" href="Lista_exercicios_2\ex2_3.php">Exercício 3</a></li>
+<li><a class="dropdown-item" href="Lista_exercicios_2\ex2_4.php">Exercício 4</a></li>
+<li><a class="dropdown-item" href="Lista_exercicios_2\ex2_5.php">Exercício 5</a></li>
+<li><a class="dropdown-item" href="Lista_exercicios_2\ex2_6.php">Exercício 6</a></li>
+<li><a class="dropdown-item" href="Lista_exercicios_2\ex2_7.php">Exercício 7</a></li>
+<li><a class="dropdown-item" href="Lista_exercicios_2\ex2_8.php">Exercício 8</a></li>
+<li><a class="dropdown-item" href="Lista_exercicios_2\ex2_9.php">Exercício 9</a></li>
+<li><a class="dropdown-item" href="Lista_exercicios_2\ex2_10.php">Exercício 10</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -38,11 +38,11 @@
       Lista 3
     </a>
     <ul class="dropdown-menu" aria-labelledby="dropdown3">
-      <li><a class="dropdown-item" href="../Lista_exercicios_3/ex3_1.php">Exercício 1</a></li>
-      <li><a class="dropdown-item" href="../Lista_exercicios_3/ex3_2.php">Exercício 2</a></li>
-      <li><a class="dropdown-item" href="../Lista_exercicios_3/ex3_3.php">Exercício 3</a></li>
-      <li><a class="dropdown-item" href="../Lista_exercicios_3/ex3_4.php">Exercício 4</a></li>
-      <li><a class="dropdown-item" href="../Lista_exercicios_3/ex3_5.php">Exercício 5</a></li>
+      <li><a class="dropdown-item" href="Lista_exercicios_3/ex3_1.php">Exercício 1</a></li>
+      <li><a class="dropdown-item" href="Lista_exercicios_3/ex3_2.php">Exercício 2</a></li>
+      <li><a class="dropdown-item" href="Lista_exercicios_3/ex3_3.php">Exercício 3</a></li>
+      <li><a class="dropdown-item" href="Lista_exercicios_3/ex3_4.php">Exercício 4</a></li>
+      <li><a class="dropdown-item" href="Lista_exercicios_3/ex3_5.php">Exercício 5</a></li>
     </ul>
   </li>
 </ul>

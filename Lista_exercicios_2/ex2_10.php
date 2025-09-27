@@ -1,5 +1,5 @@
 <?php
-include("cabecalho.php");
+include("c../abecalho.php");
 ?>
 <h1>Exercicio 10</h1>
 <form method="post">
@@ -18,5 +18,5 @@ include("cabecalho.php");
         echo "$numero x $i = $resultado<br>";
     }                                                              
   }
-include("rodape.php");
+include("../rodape.php");
 ?>

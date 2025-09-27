@@ -1,5 +1,5 @@
 <?php
-include("cabecalho.php");
+include("../cabecalho.php");
 ?>
 <h1>Exercicio 4</h1>
 <form method="post">
@@ -22,5 +22,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }    
 }
 
-include("rodape.php")
+include("../rodape.php")
 ?>

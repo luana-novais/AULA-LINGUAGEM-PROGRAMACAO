@@ -1,5 +1,5 @@
 <?php
-include("cabecalho.php");
+include("../cabecalho.php");
 ?>
 <h1>Exercicio 9</h1>
 <form method="post">
@@ -21,5 +21,5 @@ include("cabecalho.php");
     echo "<h2>Resultado:</h2>";
     echo "O fatorial de $numero é: <strong>$fatorial</strong>";
 }
-include("rodape.php");
+include("../rodape.php");
 ?>

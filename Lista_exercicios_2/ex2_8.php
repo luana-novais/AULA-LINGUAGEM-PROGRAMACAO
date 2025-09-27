@@ -1,5 +1,5 @@
 <?php
-include("cabecalho.php");
+include("../cabecalho.php");
 ?>
 <h1>Exercicio 8</h1>
 <form method="post">
@@ -17,6 +17,6 @@ include("cabecalho.php");
         $numero--;
     } while ($numero >= 1);
 }
-  include("rodape.php");
+  include("../rodape.php");
 ?>
 

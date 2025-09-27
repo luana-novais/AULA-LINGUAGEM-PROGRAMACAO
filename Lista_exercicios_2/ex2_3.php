@@ -1,5 +1,5 @@
 <?php
-    include("cabecalho.php");
+    include("../cabecalho.php");
 ?>
 
 <h1>Exercicio 3</h1>
@@ -27,5 +27,5 @@
         }
 }
 
-include("rodape.php");
+include("../rodape.php");
 ?>

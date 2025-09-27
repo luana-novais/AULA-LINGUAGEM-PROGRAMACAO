@@ -1,5 +1,5 @@
 <?php
-include("cabecalho.php");
+include("../cabecalho.php");
 ?>
 <h1>Exercicio 7</h1>
 <form method="post">
@@ -24,6 +24,6 @@ include("cabecalho.php");
     echo "A soma dos números de 1 até $numero é: <strong>$soma</strong>";
 
   }
-  include("rodape.php");
+  include("../rodape.php");
 ?>
 

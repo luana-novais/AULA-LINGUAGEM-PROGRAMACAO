@@ -1,5 +1,5 @@
 <?php
-include("cabecalho.php");
+include("../cabecalho.php");
 ?>
 <h1>Exercicio 6</h1>
 <form method="post">
@@ -17,5 +17,5 @@ include("cabecalho.php");
         echo $i . "<br>";
       }
     }
-  include("rodape.php");
+  include("../rodape.php");
 ?>

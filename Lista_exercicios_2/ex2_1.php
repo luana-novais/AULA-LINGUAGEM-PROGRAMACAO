@@ -1,5 +1,5 @@
 <?php
-include("cabecalho.php");
+include("..\cabecalho.php");
 ?>
 <h1>Exercicio 1</h1>
 <form method="post">
@@ -69,5 +69,5 @@ include("cabecalho.php");
 
         echo "O menor valor é: $menor, e está na posição $posicao";
     }
-    include("rodape.php");
+    include("../rodape.php");
 ?>
