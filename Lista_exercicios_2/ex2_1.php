@@ -1,6 +1,5 @@
-<?php
-include("..\cabecalho.php");
-?>
+<?php include("../cabecalho.php"); ?>
+
 <h1>Exercicio 1</h1>
 <form method="post">
 <div class="mb-3">

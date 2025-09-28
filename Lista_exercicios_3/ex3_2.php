@@ -1,11 +1,12 @@
-<?php
-include("../Lista_exercicios_2/cabecalho.php");
-?>
+<?php include("../cabecalho.php"); ?>
+
 <h2>Exercicio 2</h2>
 <form method="post">
-    <input type="text" name="palavra" placeholder="Digite uma palavra" required>
-    <button type="submit">Enviar</button>
-</form>
+    <div class="mb-3">
+        <label for="palavra" class="form-label">Digite uma palavra:</label>
+        <input type="text" id="palavra" name="palavra" class="form-control" required="">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
 <?php
 function maiusculoMinusculo($palavra) {
     return [
@@ -17,7 +18,8 @@ function maiusculoMinusculo($palavra) {
 if(isset($_POST['palavra'])) {
     $palavra = $_POST['palavra'];
     $resultado = maiusculoMinusculo($palavra);
-    echo "Maiúsculo: " . $resultado['maiusculo'] . "<br>";
-    echo "Minúsculo: " . $resultado['minusculo'];
+    echo "<p> Maiúsculo: " . $resultado['maiusculo'] . "</p>";
+    echo "<p> Minúsculo: " . $resultado['minusculo'] . "</p>"; 
 }
+include("../rodape.php");
 ?>

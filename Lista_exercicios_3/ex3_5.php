@@ -1,11 +1,12 @@
-<?php
-include("../Lista_exercicios_2/cabecalho.php");
-?>
+<?php include("../cabecalho.php"); ?>
 
 <h2>Exercicio 5</h2>
 <form method="post">
-    <input type="number" step="any" name="numero" placeholder="Digite um número" required>
-    <button type="submit">Enviar</button>
+    <div class="mb-3">
+        <label for="numero" class="form-label">Digite um número</label>
+        <input type="number" step="any" id="numero" name="numero" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 
 <?php
@@ -16,7 +17,8 @@ function raizQuadrada($numero) {
 if(isset($_POST['numero'])) {
     $numero = $_POST['numero'];
     $resultado = raizQuadrada($numero);
-    echo "A raiz quadrada de $numero é $resultado";
+    echo "A raiz quadrada de $numero é " . number_format($resultado, 2, ',','');
 }
+include("../rodape.php");
 ?>
 

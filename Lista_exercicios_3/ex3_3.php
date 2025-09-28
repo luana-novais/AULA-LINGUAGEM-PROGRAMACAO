@@ -1,12 +1,15 @@
-<?php
-include("../Lista_exercicios_2/cabecalho.php");
-?>
+<?php include("../cabecalho.php"); ?>
+
 <h2>Exercicio 3</h2>
 
 <form method="post">
-    <input type="text" name="frase" placeholder="Digite a frase" required><br>
-    <input type="text" name="palavra" placeholder="Digite a palavra" required><br>
-    <button type="submit">Enviar</button>
+    <div class="mb-3">
+        <label for="frase" class="form-label">Digite uma frase:</label>
+        <input type="text" id="frase" name="frase" class="form-control" required="">
+        <label for="palavra" class="form-label">Digite uma palavra:</label>
+        <input type="text" id="palavra" name="palavra" class="form-control" required="">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 <?php
 
@@ -22,5 +25,6 @@ if(isset($_POST['frase']) && isset($_POST['palavra'])) {
         echo "A palavra '$palavra' NÃO está contida em '$frase'.";
     }
 }
+include("../rodape.php");
 ?>
 
