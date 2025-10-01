@@ -76,10 +76,10 @@
     </ul>
   </li>
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="dropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="dropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Lista 4
     </a>
-    <ul class="dropdown-menu" aria-labelledby="dropdown3">
+    <ul class="dropdown-menu" aria-labelledby="dropdown4>
   <li><a class="dropdown-item" href="/Lista_exercicios_4/ex4_1.php">Exercício 1</a></li>
   <li><a class="dropdown-item" href="/Lista_exercicios_4/ex4_2.php">Exercício 2</a></li>
   <li><a class="dropdown-item" href="/Lista_exercicios_4/ex4_3.php">Exercício 3</a></li>
