@@ -2,7 +2,7 @@
 
     $dominio = "mysql:host=localhost;dbname=projetophp"; 
     $usuario = "root";
-    $senha = "123456";
+    $senha = "";
 
     try {
         //sequencia de ações que a gente quer q aconteça

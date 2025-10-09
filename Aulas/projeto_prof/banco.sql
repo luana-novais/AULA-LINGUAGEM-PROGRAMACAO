@@ -19,6 +19,7 @@ USE `projetophp` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `projetophp`.`Usuario` (
   `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  'nome' VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `senha` TEXT NOT NULL,
   PRIMARY KEY (`id_usuario`))
