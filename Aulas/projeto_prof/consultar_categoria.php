@@ -30,12 +30,14 @@
     <form method="post">
         <input type="hidden" name="id" value="<?= $categoria['id'] ?>">
         <div class="mb-3">
-            <label for="nome" class="form-label">Informe o nome da categoria:</label>
+            <label for="nome" class="form-label">Nome da categoria:</label>
             <input disabled value="<?= $categoria['nome']?>" type="text" id="nome" name="nome" class="form-control" required="">
         </div>
         <p>Deseja excluir esse registro?</p>
         <button type="submit" class="btn btn-danger">Excluir</button>
-        <button onclick="history.back();" type="button" class="btn btn-secondary">Voltar</button>
+        <button onclick="history.back();" type="button" class="btn btn-secondary">
+            Voltar
+        </button>
     </form>
 
 <?php

@@ -15,40 +15,40 @@ CREATE SCHEMA IF NOT EXISTS `projetophp` DEFAULT CHARACTER SET utf8 ;
 USE `projetophp` ;
 
 -- -----------------------------------------------------
--- Table `projetophp`.`Usuario`
+-- Table `projetophp`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projetophp`.`Usuario` (
-  `id_usuario` INT NOT NULL AUTO_INCREMENT,
-  'nome' VARCHAR(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `projetophp`.`usuario` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(255) NOT NULL,
-  `senha` TEXT NOT NULL,
-  PRIMARY KEY (`id_usuario`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `projetophp`.`Categoria`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projetophp`.`Categoria` (
-  `id_categoria` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id_categoria`))
+  `senha` TEXT NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `projetophp`.`Produto`
+-- Table `projetophp`.`categoria`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projetophp`.`Produto` (
-  `id_produto` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `projetophp`.`categoria` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `projetophp`.`produto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `projetophp`.`produto` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(255) NOT NULL,
   `valor` DECIMAL(8,2) NOT NULL,
-  `Categoria_id_categoria` INT NOT NULL,
-  PRIMARY KEY (`id_produto`),
-  INDEX `fk_Produto_Categoria_idx` (`Categoria_id_categoria` ASC) VISIBLE,
-  CONSTRAINT `fk_Produto_Categoria`
-    FOREIGN KEY (`Categoria_id_categoria`)
-    REFERENCES `projetophp`.`Categoria` (`id_categoria`)
+  `categoria_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_produto_categoria_idx` (`categoria_id` ASC),
+  CONSTRAINT `fk_produto_categoria`
+    FOREIGN KEY (`categoria_id`)
+    REFERENCES `projetophp`.`categoria` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -57,3 +57,5 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
