@@ -28,3 +28,10 @@ data DATETIME,
 FOREIGN KEY (cultura_id) REFERENCES culturas(id),
 FOREIGN KEY (area_id) REFERENCES areas(id),
 FOREIGN KEY (insumo_id) REFERENCES insumos(id));
+
+CREATE TABLE usuario (
+  id INT NOT NULL AUTO_INCREMENT,
+  email VARCHAR(255) NOT NULL,
+  nome VARCHAR(255) NOT NULL,
+  senha TEXT NOT NULL,
+  PRIMARY KEY (id))
