@@ -1,14 +1,11 @@
 <?php
-
 session_start();
 if (!isset($_SESSION['acesso']) || $_SESSION['acesso'] !== true) {
     header('location: index.php');
     exit();
 }
 $nome_usuario = $_SESSION['nome'] ;
-
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
