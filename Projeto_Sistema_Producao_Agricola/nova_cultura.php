@@ -2,15 +2,17 @@
 require("conexao.php");
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-    
     $nome = $_POST['nome'];
-    $tipo = $_POST['tipo'];
+    $tipo_cultivo = $_POST['tipo_cultivo']; 
+    $ciclo_dias = $_POST['ciclo_dias'];     
+    $descricao = $_POST['descricao'];       
     
     try{
         $stmt = 
-            $pdo->prepare("INSERT INTO culturas (nome, tipo) VALUES (?, ?)");
-            
-        if($stmt->execute([$nome, $tipo])){
+            $pdo->prepare("INSERT INTO culturas (nome, tipo_cultivo, ciclo_dias, descricao) 
+                           VALUES (?, ?, ?, ?)");
+  
+        if($stmt->execute([$nome, $tipo_cultivo, $ciclo_dias, $descricao])){
             header('location: culturas.php?cadastro=true');
             exit();
         } else {
@@ -27,7 +29,7 @@ require("cabecalho.php");
 
 <h1 class="mb-4">Adicionar Nova Cultura</h1>
 
-<form method="post" action="novo_cultura.php">
+<form method="post" action="nova_cultura.php">
     
     <div class="mb-3">
         <label for="nome" class="form-label">Nome da Cultura:</label>
@@ -42,8 +44,8 @@ require("cabecalho.php");
     </div>
     
     <div class="mb-3">
-        <label for="tipo" class="form-label">Tipo da Cultura:</label>
-        <select id="tipo" name="tipo" class="form-select" required>
+        <label for="tipo_cultivo" class="form-label">Tipo de Cultura:</label>
+        <select id="tipo_cultivo" name="tipo_cultivo" class="form-select" required>
             <option value="">Selecione o tipo</option>
             <option value="Grão">Grão</option>
             <option value="Fruta">Fruta</option>
@@ -51,6 +53,30 @@ require("cabecalho.php");
             <option value="Verdura">Verdura</option>
             <option value="Outros">Outros</option>
         </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="ciclo_dias" class="form-label">Ciclo de Vida (Dias):</label>
+        <input 
+            type="number" 
+            step="1" 
+            id="ciclo_dias" 
+            name="ciclo_dias" 
+            class="form-control" 
+            placeholder="Ex: 120"
+            required
+        >
+    </div>
+    
+    <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição / Notas:</label>
+        <textarea 
+            id="descricao" 
+            name="descricao" 
+            class="form-control" 
+            rows="3"
+            placeholder="Detalhes importantes sobre a variedade ou o cultivo."
+        ></textarea>
     </div>
 
     <button type="submit" class="btn btn-success">

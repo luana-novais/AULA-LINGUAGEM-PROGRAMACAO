@@ -2,16 +2,18 @@
 require("conexao.php");
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-    
     $nome = $_POST['nome_insumo'];
     $tipo = $_POST['tipo'];
-    $quantidade= $_POST['quantidade'];
+    $estoque_atual = $_POST['estoque_atual'];       
+    $unidade_medida = $_POST['unidade_medida'];    
+    $valor_unitario = $_POST['valor_unitario'];    
     
     try{
         $stmt = 
-            $pdo->prepare("INSERT INTO insumos (nome, tipo, quantidade) VALUES (?, ?, ?)");
-            
-        if($stmt->execute([$nome, $tipo, $quantidade])){
+            $pdo->prepare("INSERT INTO insumos (nome, tipo, estoque_atual, unidade_medida, valor_unitario) 
+                           VALUES (?, ?, ?, ?, ?)");
+
+        if($stmt->execute([$nome, $tipo, $estoque_atual, $unidade_medida, $valor_unitario])){
             header('location: insumos.php?cadastro=true');
             exit();
         } else {
@@ -31,7 +33,14 @@ require("cabecalho.php");
     
     <div class="mb-3">
         <label for="nome_insumo" class="form-label">Nome Comercial / Componente:</label>
-        <input type="text" id="nome_insumo" name="nome_insumo" class="form-control" placeholder="Ex: Ureia, Semente de Milho, Fungicida X" required>
+        <input 
+            type="text" 
+            id="nome_insumo" 
+            name="nome_insumo" 
+            class="form-control" 
+            placeholder="Ex: Ureia, Semente de Milho, Fungicida X" 
+            required
+        >
     </div>
     
     <div class="mb-3">
@@ -44,10 +53,43 @@ require("cabecalho.php");
             <option value="Outro">Outro (Combustível, etc.)</option>
         </select>
     </div>
+
+    <div class="mb-3">
+        <label for="unidade_medida" class="form-label">Unidade de Medida:</label>
+        <input 
+            type="text" 
+            id="unidade_medida" 
+            name="unidade_medida" 
+            class="form-control" 
+            placeholder="Ex: Kg, Litros, Sacos"
+            required
+        >
+    </div>
     
-   <div class="mb-3">
-        <label for="quantidade" class="form-label">Quantidade Inicial em Estoque:</label>
-        <input type="number" step="0.01" id="quantidade" name="quantidade" class="form-control" placeholder="Ex: 500.50 (unidades, litros ou kg)" required>
+    <div class="mb-3">
+        <label for="estoque_atual" class="class="form-label"">Quantidade Inicial em Estoque:</label>
+        <input 
+            type="number" 
+            step="0.01" 
+            id="estoque_atual" 
+            name="estoque_atual" 
+            class="form-control" 
+            placeholder="Ex: 500.50" 
+            required
+        >
+    </div>
+
+    <div class="mb-3">
+        <label for="valor_unitario" class="form-label">Valor Unitário (R$):</label>
+        <input 
+            type="number" 
+            step="0.01" 
+            id="valor_unitario" 
+            name="valor_unitario" 
+            class="form-control" 
+            placeholder="Ex: 150.99"
+            required
+        >
     </div>
 
     <button type="submit" class="btn btn-success">

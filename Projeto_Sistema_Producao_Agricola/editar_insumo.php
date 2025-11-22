@@ -3,7 +3,7 @@ require("conexao.php");
 
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     try{
-        $stmt = $pdo->prepare("SELECT id, nome, tipo, quantidade from insumos WHERE id = ?");
+        $stmt = $pdo->prepare("SELECT * FROM insumos WHERE id_insumo = ?");
         $stmt->execute([$_GET['id']]);
         $insumo = $stmt->fetch(PDO::FETCH_ASSOC); 
 
@@ -16,15 +16,27 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     }
 require("cabecalho.php");
 }
+
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     $nome = $_POST['nome'];
     $tipo = $_POST['tipo'];
-    $quantidade = $_POST['quantidade'];
-    $id = $_POST['id']; 
+    $estoque_atual = $_POST['estoque_atual']; 
+    $unidade_medida = $_POST['unidade_medida']; 
+    $valor_unitario = $_POST['valor_unitario']; 
+    $id = $_POST['id_insumo']; 
+    
     try{
         $stmt = 
-            $pdo->prepare("UPDATE insumos SET nome = ?, tipo = ?, quantidade = ? WHERE id = ?");
-        if($stmt->execute([$nome, $tipo, $quantidade, $id])){
+            $pdo->prepare("UPDATE insumos 
+                           SET nome = ?, 
+                               tipo = ?, 
+                               estoque_atual = ?, 
+                               unidade_medida = ?, 
+                               valor_unitario = ? 
+                           WHERE id_insumo = ?");
+        
+        
+        if($stmt->execute([$nome, $tipo, $estoque_atual, $unidade_medida, $valor_unitario, $id])){
             header('location: insumos.php?editar=true');
             exit();
         } else {
@@ -41,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <form method="post" action="editar_insumo.php">
     
-    <input type="hidden" name="id" value="<?= $insumo['id'] ?? '' ?>">
+    <input type="hidden" name="id_insumo" value="<?= $insumo['id_insumo'] ?? '' ?>">
     
     <div class="mb-3">
         <label for="nome" class="form-label">Nome Comercial / Componente:</label>
@@ -66,15 +78,41 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <option value="Outro" <?= $currentType == 'Outro' ? 'selected' : '' ?>>Outro (Combustível, etc.)</option>
         </select>
     </div>
+
+    <div class="mb-3">
+        <label for="unidade_medida" class="form-label">Unidade de Medida:</label>
+        <input 
+            value="<?= htmlspecialchars($insumo['unidade_medida'] ?? '') ?>"
+            type="text" 
+            id="unidade_medida" 
+            name="unidade_medida" 
+            class="form-control" 
+            placeholder="Ex: Kg, Litros, Sacos"
+            required
+        >
+    </div>
     
     <div class="mb-3">
-        <label for="quantidade" class="form-label">Quantidade em Estoque:</label>
+        <label for="estoque_atual" class="form-label">Quantidade em Estoque:</label>
         <input 
-            value="<?= htmlspecialchars($insumo['quantidade'] ?? '') ?>"
+            value="<?= htmlspecialchars($insumo['estoque_atual'] ?? '') ?>"
             type="number" 
             step="0.01" 
-            id="quantidade" 
-            name="quantidade" 
+            id="estoque_atual" 
+            name="estoque_atual" 
+            class="form-control" 
+            required
+        >
+    </div>
+
+    <div class="mb-3">
+        <label for="valor_unitario" class="form-label">Valor Unitário (R$):</label>
+        <input 
+            value="<?= htmlspecialchars($insumo['valor_unitario'] ?? '') ?>"
+            type="number" 
+            step="0.01" 
+            id="valor_unitario" 
+            name="valor_unitario" 
             class="form-control" 
             required
         >
