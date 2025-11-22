@@ -2,7 +2,14 @@
 require("conexao.php");
 
 try{
-    $stmt = $pdo->query("SELECT * FROM areas ORDER BY nome_talhao");
+    $stmt = $pdo->query("SELECT 
+                            id_area, 
+                            nome_talhao, 
+                            tamanho_hectares, 
+                            coordenadas, 
+                            tipo_solo
+                         FROM areas 
+                         ORDER BY nome_talhao");
     $dados = $stmt->fetchAll();
 } catch(\Exception $e){
     $erro = "Erro ao carregar os dados das áreas.";
@@ -20,6 +27,7 @@ require("cabecalho.php");
     <?php endif; ?>
 
     <?php
+    // Mensagens de feedback
     if (isset($_GET['cadastro']) && $_GET['cadastro'] == 'true'){
         echo "<p class='text-success'>✅ Área cadastrada com sucesso!</p>";
     } else if (isset($_GET['cadastro']) && $_GET['cadastro'] == 'false'){
@@ -53,7 +61,7 @@ require("cabecalho.php");
                 <th>Tamanho (ha)</th>
                 <th>Tipo de Solo</th>
                 <th>Coordenadas</th>
-                <th>Ações</th>
+                <th style="width: 250px;">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -72,8 +80,8 @@ require("cabecalho.php");
                     <a href="consultar_area.php?id=<?= $d['id_area'] ?>" class="btn btn-sm btn-info">
                         <i class="fas fa-search"></i> Consultar
                     </a>
-                    <a href="excluir_area.php?id=<?= $d['id_area'] ?>" class="btn btn-sm btn-danger"
-                       onclick="return confirm('Tem certeza que deseja excluir a área: <?= htmlspecialchars($d['nome_talhao']) ?>?')">
+                    <a href="#" class="btn btn-sm btn-danger"
+                       onclick="confirmarExclusao(<?= $d['id_area'] ?>, '<?= addslashes(htmlspecialchars($d['nome_talhao'])) ?>', 'excluir_area.php'); return false;">
                         <i class="fas fa-trash-alt"></i> Excluir
                     </a>
                 </td>
@@ -89,6 +97,25 @@ require("cabecalho.php");
     </table>
 
 </div>
+
+<script>
+    function confirmarExclusao(id, nome, scriptDestino) {
+        Swal.fire({
+            title: 'Tem certeza?',
+            html: `Você irá excluir: <strong>${nome}</strong>. Esta ação não pode ser desfeita!`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sim, Excluir!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = scriptDestino + '?id=' + id;
+            }
+        })
+    }
+</script>
 
 <?php
 require("rodape.php");

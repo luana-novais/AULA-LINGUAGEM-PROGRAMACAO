@@ -3,8 +3,15 @@
 require("conexao.php");
 
 try{
-
-    $stmt = $pdo->query("SELECT * FROM insumos ORDER BY nome");
+    $stmt = $pdo->query("SELECT 
+                            id_insumo, 
+                            nome, 
+                            tipo, 
+                            estoque_atual, 
+                            unidade_medida, 
+                            valor_unitario 
+                         FROM insumos 
+                         ORDER BY nome");
     $dados = $stmt->fetchAll();
 } catch(\Exception $e){
     $erro = "Erro ao carregar os dados dos insumos.";
@@ -22,6 +29,7 @@ require("cabecalho.php");
     <?php endif; ?>
 
     <?php
+    // Mensagens de feedback
     if (isset($_GET['cadastro']) && $_GET['cadastro'] == 'true'){
         echo "<p class='text-success'>✅ Insumo cadastrado com sucesso!</p>";
     } else if (isset($_GET['cadastro']) && $_GET['cadastro'] == 'false'){
@@ -78,8 +86,8 @@ require("cabecalho.php");
                     <a href="consultar_insumo.php?id=<?= $d['id_insumo'] ?>" class="btn btn-sm btn-info">
                         <i class="fas fa-search"></i> Consultar
                     </a>
-                    <a href="excluir_insumo.php?id=<?= $d['id_insumo'] ?>" class="btn btn-sm btn-danger"
-                       onclick="return confirm('Tem certeza que deseja excluir o insumo: <?= htmlspecialchars($d['nome']) ?>?')">
+                    <a href="#" class="btn btn-sm btn-danger"
+                       onclick="confirmarExclusao(<?= $d['id_insumo'] ?>, '<?= addslashes(htmlspecialchars($d['nome'])) ?>', 'excluir_insumo.php'); return false;">
                         <i class="fas fa-trash-alt"></i> Excluir
                     </a>
                 </td>
@@ -96,6 +104,29 @@ require("cabecalho.php");
     </table>
 
 </div>
+
+<?php
+if (!function_exists('confirmarExclusao')):
+?>
+<script>
+    function confirmarExclusao(id, nome, scriptDestino) {
+        Swal.fire({
+            title: 'Tem certeza?',
+            html: `Você irá excluir: <strong>${nome}</strong>. Esta ação não pode ser desfeita!`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sim, Excluir!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = scriptDestino + '?id=' + id;
+            }
+        })
+    }
+</script>
+<?php endif; ?>
 
 <?php
 require("rodape.php");
