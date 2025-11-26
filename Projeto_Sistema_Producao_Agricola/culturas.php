@@ -48,22 +48,24 @@ if (isset($_GET['excluir']) && $_GET['excluir'] == 'true'){
 <table class="table table-hover table-striped">
     <thead>
         <tr>
-            <th>ID</th>
+           
             <th>Nome</th>
             <th>Tipo de Cultivo</th>
             <th>Ciclo (Dias)</th>
             <th>Data de Criação</th>
+            <th>Descrição</th>
             <th style="width: 250px;">Ações</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($dados as $d): ?>
         <tr>
-            <td><?= $d['id_cultura'] ?></td>
+            
             <td><?= htmlspecialchars($d['nome']) ?></td>
             <td><?= htmlspecialchars($d['tipo_cultivo']) ?></td>
             <td><?= htmlspecialchars($d['ciclo_dias']) ?></td>
             <td><?= htmlspecialchars($d['data_criacao']) ?></td>
+            <td><?= htmlspecialchars($d['descricao']) ?></td>
             <td class="d-flex gap-2">
                 <a href="editar_cultura.php?id=<?= $d['id_cultura'] ?>" class="btn btn-sm btn-primary">
                     <i class="fas fa-edit"></i> Editar

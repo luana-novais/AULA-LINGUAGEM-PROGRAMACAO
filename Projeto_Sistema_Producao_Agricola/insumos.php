@@ -58,7 +58,6 @@ require("cabecalho.php");
     <table class="table table-hover table-striped">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Nome do Insumo</th>
                 <th>Tipo</th>
                 <th>Estoque</th>
@@ -72,7 +71,6 @@ require("cabecalho.php");
             foreach($dados as $d):
             ?>
             <tr>
-                <td><?= $d['id_insumo'] ?></td>
                 <td><?= htmlspecialchars($d['nome']) ?></td>
                 <td><?= htmlspecialchars($d['tipo']) ?></td>
                 <td><?= number_format($d['estoque_atual'], 2, ',', '.') ?></td>

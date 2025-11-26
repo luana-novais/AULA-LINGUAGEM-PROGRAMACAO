@@ -56,7 +56,6 @@ require("cabecalho.php");
     <table class="table table-hover table-striped">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Nome do Talhão</th>
                 <th>Tamanho (ha)</th>
                 <th>Tipo de Solo</th>
@@ -67,7 +66,6 @@ require("cabecalho.php");
         <tbody>
             <?php foreach($dados as $d): ?>
             <tr>
-                <td><?= $d['id_area'] ?></td>
                 <td><?= htmlspecialchars($d['nome_talhao']) ?></td>
                 <td><?= number_format($d['tamanho_hectares'], 2, ',', '.') ?> ha</td>
                 <td><?= htmlspecialchars($d['tipo_solo']) ?></td>

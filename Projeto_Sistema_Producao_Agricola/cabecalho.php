@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if (!isset($_SESSION['acesso']) || $_SESSION['acesso'] !== true) {
     header('location: index.php');
     exit();
@@ -43,6 +45,7 @@ $nome_usuario = $_SESSION['nome'] ;
             }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg no-print">
